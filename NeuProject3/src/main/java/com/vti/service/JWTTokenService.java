@@ -41,7 +41,7 @@ public class JWTTokenService {
     public static Authentication parseTokenToUserInformation(HttpServletRequest request) {
         String token = request.getHeader(AUTHORIZATION);
         
-        if (token == null) {
+        if (token == null || token.startsWith("Basic")) {
         	return null;
         }
         
